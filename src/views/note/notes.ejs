@@ -1,0 +1,50 @@
+<%- include('../layouts/header') %>
+
+
+
+    <div class="row mt-2">
+        <% if(notes.length> 0){ %>
+            <% notes.forEach((note)=>{ %>
+
+                <div class="col-md-3 mt-4">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h4 class="card-title d-flex justify-content-between align-items-center">
+                                <%= note.title%>
+                                    <a href="/notes/update-note/<%= note._id %>  "><i class="fas fa-edit"></i></a>
+                            </h4>
+                            <p>
+                                <%= note.description%>
+                            </p>
+
+                            <form method="POST" action="notes/delete/<%= note.id %>?_method=DELETE">
+
+                                <button class="btn btn-danger btn-block" type="submit">Delete</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <div class="card mx-auto">
+                            <div class="card-body">
+                                <h1>Hello <%= user.name %>
+                                </h1>
+                                <p class="lead">There are not notes yet</p>
+                                <a href="notes/add-note" class="btn btn-success btn-block">Create one!</a>
+                            </div>
+                        </div>
+                        <% } %>
+    </div>
+
+
+
+
+
+
+
+
+
+    <%- include('../layouts/footer') %>

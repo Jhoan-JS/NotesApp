@@ -1,0 +1,38 @@
+<%- include('../layouts/header') %>
+    <%if (locals.errors) { %>
+        <% errors.forEach((error)=>{ %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= error.text %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <% }) %>
+                <% } %>
+
+                    <div class="col-md-4 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Edit Note</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="/notes/update-note/<%= id %>?_method=PUT" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="title" placeholder="Title"
+                                            value="<%= title %>" autofocus />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea name="description" class="form-control" value=""
+                                            placeholder="Description"><%= description %></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Edit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%- include('../layouts/footer') %>
