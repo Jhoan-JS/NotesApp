@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background: #136a8a; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -15,3 +19,19 @@ body {
 .navbar a {
   color: white;
 } */
+
+.footer-black {
+  background-color: #060606;
+}
+
+/* #footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 100px;
+  width: 100%;
+} */
+
+.top {
+  margin-bottom: 30px;
+}
